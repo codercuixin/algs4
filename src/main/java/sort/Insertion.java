@@ -27,6 +27,18 @@ public class Insertion {
         assert isSorted(a, lo, hi);
     }
 
+    public static void sort(String[] a, int lo, int hi, int d){
+        for (int i = lo + 1; i < hi; i++) {
+            for (int j = i; j > lo &&  less(a[j], a[j-1]); j--) {
+                exch(a, j, j-1);
+            }
+        }
+        assert isSorted(a, lo, hi);
+    }
+    private static boolean less(String v, String w, int d){
+        return v.substring(d).compareTo(w.substring(d)) < 0;
+    }
+
     /**
      * Rearranges the array in ascending order, using a comparator.
      * @param a the array
